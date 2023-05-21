@@ -11,6 +11,9 @@ module.exports = {
       highlight: '#F79327',
       secondary: '#999',
     },
+    margin: {
+      'zero-auto': '0 auto',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
