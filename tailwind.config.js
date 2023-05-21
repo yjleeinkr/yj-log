@@ -14,6 +14,9 @@ module.exports = {
     margin: {
       'zero-auto': '0 auto',
     },
+    boxShadow: {
+      highlight: '#F79327 0px 0px 6px 0px',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
