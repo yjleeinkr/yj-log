@@ -10,6 +10,7 @@ module.exports = {
       primary: '#000000',
       highlight: '#F79327',
       secondary: '#999',
+      point: '#C3FCF1',
     },
     margin: {
       'zero-auto': '0 auto',
