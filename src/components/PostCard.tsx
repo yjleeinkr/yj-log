@@ -10,7 +10,7 @@ export default function PostCard({ post }: { post: PostProps }) {
 
   return (
     <div
-      className="rounded-md w-full sm:w-[48%] lg:w-[32%] shadow-card overflow-clip cursor-pointer m-1 inline-block hover:shadow-card-pop hover:transition-shadow hover:duration-500"
+      className="rounded-md w-full sm:w-[48%] lg:w-[32%] shadow-card overflow-clip cursor-pointer m-1 inline-block hover:shadow-card-pop hover:transition-all hover:duration-500 hover:scale-[1.005]"
       onClick={() => router.push(`/posts/${path}`)}
     >
       <div className="">
@@ -19,8 +19,8 @@ export default function PostCard({ post }: { post: PostProps }) {
       <section className="py-2 px-3 text-center">
         <p className="text-right text-xs text-secondary font-light py-1">{date}</p>
         <div className="flex flex-col items-center">
-          <h2 className="font-semibold">{title}</h2>
-          <p className="text-sm font-light text-ellipsis overflow-hidden whitespace-nowrap w-full">{description}</p>
+          <h2 className="text-sm font-medium py-1">{title}</h2>
+          <p className="text-xs font-light text-ellipsis overflow-hidden whitespace-nowrap w-full">{description}</p>
           <span className="text-xs rounded-lg bg-point px-2 py-0.5 my-3">{category}</span>
         </div>
       </section>
