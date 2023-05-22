@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={notoKR.className}>
-        <header className="flex p-4 justify-between max-w-[90%] m-zero-auto">
+        <header className="flex p-4 justify-between max-w-[90%] lg:max-w-[85%] xl:max-w-[75%] m-zero-auto">
           <h1 className="text-lg font-bold whitespace-nowrap">
             <Link href="/">
               yj Log <span className="text-highlight">+</span>
