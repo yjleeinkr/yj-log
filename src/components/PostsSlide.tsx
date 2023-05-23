@@ -33,7 +33,7 @@ export default function PostsSlide({ posts }: { posts: PostProps[] }) {
         removeArrowOnDeviceType={['mobile']}
       >
         {posts.map((post, i) => (
-          <PostCard post={post} key={`more_posts_${i}`} />
+          <PostCard post={post} version="sm" key={`more_posts_${i}`} />
         ))}
       </Carousel>
     </div>
