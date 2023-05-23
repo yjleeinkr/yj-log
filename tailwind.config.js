@@ -11,6 +11,7 @@ module.exports = {
       highlight: '#F79327',
       secondary: '#837e7c',
       point: '#edf4ac',
+      lightgrey: '#f1f3f4',
     },
     boxShadow: {
       highlight: '#F79327 0px 0px 6px 0px',
