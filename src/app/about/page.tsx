@@ -1,4 +1,10 @@
 import Profile from '@/components/Profile';
+
+export const metadata = {
+  title: "about | yj's dev-log",
+  description: '주니어 프론트엔드 개발자 소개',
+};
+
 export default function AboutPage() {
   return (
     <div className="pb-3 box-border">
