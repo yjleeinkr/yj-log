@@ -1,7 +1,7 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 
-type Category = 'my story' | 'javascript' | 'backend';
+export type Category = 'all posts' | 'my story' | 'javascript' | 'frontend' | 'backend';
 
 export type PostProps = {
   title: string;
