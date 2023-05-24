@@ -15,22 +15,26 @@ export default function PostList({ posts }: { posts: PostProps[] }) {
   }, [category]);
 
   return (
-    <div className="flex justify-between py-10">
-      <main className="w-[80%]">
+    <div className="flex py-7 sm:py-10 flex-col-reverse sm:flex-row sm:justify-between">
+      <main className="w-full sm:w-[80%]">
         {postList.map((post, i) => (
           <PostCard post={post} version="md" key={`${post.category}_${i}`} />
         ))}
       </main>
-      <nav className="w-[8%] text-center">
-        <h2 className="underline underline-offset-8 decoration-highlight decoration-2 py-3">Category</h2>
-        <ul>
+      <nav className="sm:w-[8%] sm:text-center">
+        <h2 className="underline underline-offset-8 decoration-highlight decoration-2 py-3 text-xs sm:text-sm">
+          Category
+        </h2>
+        <ul className="flex sm:inline-block justify-between">
           {categories.map(cate => (
             <li
               key={cate}
               onClick={() => {
                 setCategory(cate);
               }}
-              className={`${cate === category ? 'text-highlight' : 'text-primary'} cursor-pointer py-0.5`}
+              className={`${
+                cate === category ? 'text-highlight' : 'text-primary'
+              } cursor-pointer px-1 pb-2 sm:px-0 sm:py-0.5 text-xs sm:text-sm whitespace-nowrap`}
             >
               {cate}
             </li>
