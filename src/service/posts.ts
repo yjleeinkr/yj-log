@@ -22,3 +22,24 @@ export async function getFeaturedOrNot(isFeatured: PostProps['featured']): Promi
   const posts = await getPosts();
   return isFeatured ? posts.filter(post => post.featured) : posts.filter(post => !post.featured);
 }
+
+export async function getMarkdown(filename: string) {
+  const filePath = path.join(process.cwd(), 'data/posts', `${filename}.md`);
+  const markdown = await fs.readFile(filePath, 'utf-8');
+  return markdown;
+}
+
+export async function getPost(filename: string) {
+  const posts = await getPosts();
+  return posts.find(post => post.path === filename);
+}
+
+export type PostContents = {
+  post: PostProps | undefined;
+  markdown: string;
+};
+
+export async function getPostContents(filename: string): Promise<PostContents> {
+  const [post, markdown] = await Promise.all([getPost(filename), getMarkdown(filename)]);
+  return { post, markdown };
+}
