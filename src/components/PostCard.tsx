@@ -17,7 +17,7 @@ export default function PostCard({ post, version }: { post: PostProps; version: 
       }
       onClick={() => router.push(`/posts/${path}`)}
     >
-      <Image src={`/img/posts/${path}.png`} alt={path} width={100} height={100} className="object-contain w-[100%]" />
+      <Image src={`/img/posts/${path}.png`} alt={path} width={400} height={100} className="object-contain w-[100%]" />
       <section className="py-2 px-3 text-center">
         <p className="text-right text-[0.6em] sm:text-xs text-secondary font-light">{date}</p>
         <div className="flex flex-col items-center">
