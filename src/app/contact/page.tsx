@@ -7,9 +7,9 @@ import EmailForm from '@/components/EmailForm';
 
 export default function ContactPage() {
   return (
-    <main className="text-center max-w-[90%] lg:max-w-[85%] xl:max-w-[75%] m-zero-auto p-5">
+    <main className="text-center max-w-[100%] lg:max-w-[85%] xl:max-w-[75%] m-zero-auto p-5">
       <div>
-        <h1 className="text-2xl font-bold">Contact me </h1>
+        <h1 className="text-xl font-bold">Contact me</h1>
         <p className="text-sm py-1 font-light">
           <HiOutlineMail className="inline-block px-1 text-xl" />
           yjleeinkr@gmail.com
@@ -33,7 +33,7 @@ export default function ContactPage() {
         </ul>
       </div>
       <div>
-        <h1 className="text-xl font-bold py-8">Or Send me an email here 🤍</h1>
+        <h1 className="text-lg font-bold pt-7">Or Send me an email here 🤍</h1>
         <EmailForm />
       </div>
     </main>
