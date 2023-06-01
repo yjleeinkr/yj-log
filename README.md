@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# making my blog with Next 13 version!
 
-## Getting Started
+1. 해당 프로젝트의 목적
 
-First, run the development server:
+- 새로운 Next.js 13버전 손으로 익히기
+- SSR/SSG/Hybrid 등 렌더링 방법의 선택 기준 잡기
+- tailwind 사용법 익히기
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 상세 내역
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- home(/): 간략한 소개 + featured posts와 전체 posts 캐러셀
+- about(/about): 간단한 소개 + 이력
+- posts(/posts): 카테고리별 포스트
+  - posts/[postId] (posts/:id): 포스트 상세 페이지 (마크다운)
+- contact(/contact): sns 링크 및 이메일 발신 기능
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  <br>
 
-## Learn More
+3. 변경 및 추가하고 싶은 내용
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 현재 포스팅되어있는 임시 데이터와 마크다운은 내가 작성한 글이 아니므로 내가 쓴 글로 포스팅할 예정
+- 댓글 및 좋아요 기능 추가
+- about과 contact를 합치고 contact에서 이메일 보내는 기능은 삭제
