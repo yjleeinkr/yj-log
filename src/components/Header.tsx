@@ -16,7 +16,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex p-2 sm:p-4 justify-between max-w-[90%] lg:max-w-[85%] xl:max-w-[75%] m-zero-auto">
+    <header className="flex p-4 justify-between">
       <h1 className="text-base sm:text-lg font-bold whitespace-nowrap">
         <Link href="/">
           yj Log <span className="text-highlight">+</span>

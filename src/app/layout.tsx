@@ -12,12 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={notoKR.className}>
-        <div className="h-auto min-h-[100vh]">
-          <Header />
-          {children}
-        </div>
+    <html lang="en" className={notoKR.className}>
+      <body className="flex flex-col max-w-screen-2xl mx-auto">
+        {/* <div className="h-auto min-h-[100vh]"> */}
+        <Header />
+        <main className="grow">{children}</main>
+        {/* </div> */}
         <Footer />
       </body>
     </html>
