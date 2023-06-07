@@ -1,21 +1,18 @@
-'use client';
-
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { PostProps } from '@/service/posts';
+import Link from 'next/link';
 
 export default function PostCard({ post, version }: { post: PostProps; version: 'sm' | 'md' }) {
   const { title, description, date, category, path } = post;
-  const router = useRouter();
 
   return (
-    <article
+    <Link
       className={
         version === 'md'
           ? 'rounded-md w-full sm:w-[48%] lg:w-[32%] shadow-card overflow-clip cursor-pointer m-1 inline-block hover:shadow-card-pop hover:transition-all hover:duration-500 hover:scale-[1.005]'
-          : 'rounded-md w-[96%] cursor-pointer shadow-card overflow-clip'
+          : 'rounded-md w-[96%] cursor-pointer shadow-card overflow-clip inline-block'
       }
-      onClick={() => router.push(`/posts/${path}`)}
+      href={`/posts/${path}`}
     >
       <Image src={`/img/posts/${path}.png`} alt={path} width={400} height={100} className="object-contain w-[100%]" />
       <section className="py-2 px-3 text-center">
@@ -30,6 +27,6 @@ export default function PostCard({ post, version }: { post: PostProps; version: 
           <span className="text-[0.6em] sm:text-xs rounded-lg bg-point px-2 py-0.5 my-3">{category}</span>
         </div>
       </section>
-    </article>
+    </Link>
   );
 }
