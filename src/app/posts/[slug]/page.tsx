@@ -26,7 +26,7 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
       <main className="px-5 py-1">
         <p className="flex items-center justify-end text-sm text-secondary py-2">
           <FcCalendar />
-          <span className="px-1">{current.date}</span>
+          <time className="px-1">{current.date.toString()}</time>
         </p>
         <div className="py-3">
           <h1 className="text-3xl font-bold">{current.title}</h1>
