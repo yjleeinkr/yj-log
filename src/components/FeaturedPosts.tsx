@@ -1,15 +1,13 @@
 import { PostProps } from '@/service/posts';
-import PostCard from '@/components/PostCard';
+import { getFeaturedOrNot } from '@/service/posts';
+import PostGrid from './PostGrid';
 
-export default function FeaturedPosts({ posts }: { posts: PostProps[] }) {
+export default async function FeaturedPosts() {
+  const posts = await getFeaturedOrNot(true);
   return (
-    <section>
+    <section className="px-5 md:px-20">
       <h1 className="text-lg font-semibold py-3">Featured Posts</h1>
-      <div className="flex flex-wrap justify-center sm:justify-start">
-        {posts.map((post, i) => (
-          <PostCard post={post} version="md" key={i} />
-        ))}
-      </div>
+      <PostGrid posts={posts} />
     </section>
   );
 }
