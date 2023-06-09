@@ -8,7 +8,8 @@ export default function Home() {
       <Profile />
       {/* @ts-expect-error Server Component */}
       <FeaturedPosts />
-      {/* <PostsSlide posts={allPosts} /> */}
+      {/* @ts-expect-error Server Component */}
+      <PostsSlide />
     </>
   );
 }
