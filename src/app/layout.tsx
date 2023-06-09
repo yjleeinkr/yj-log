@@ -1,6 +1,7 @@
 import './globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const notoKR = Noto_Sans_KR({ weight: ['100', '300', '400', '500', '700', '900'], subsets: ['latin'] });
 
@@ -11,17 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={notoKR.className}>
-        <div className="h-auto min-h-[100vh]">
-          <Header />
-          {children}
-        </div>
-        <footer className="h-10 py-2  translate-y-[-50%]">
-          <p className="text-center text-[3vw] sm:text-sm text-secondary">
-            Be a better version of myself than yesterday | © 2023 YJ
-          </p>
-        </footer>
+    <html lang="en" className={notoKR.className}>
+      <body className="flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <main className="grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
