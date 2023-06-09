@@ -1,13 +1,11 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 
-export type Category = 'all posts' | 'my story' | 'javascript' | 'frontend' | 'backend';
-
 export type PostProps = {
   title: string;
   description: string;
-  date: string;
-  category: Category;
+  date: Date;
+  category: string;
   path: string;
   featured: boolean;
 };

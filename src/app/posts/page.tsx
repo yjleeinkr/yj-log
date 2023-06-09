@@ -3,10 +3,7 @@ import PostList from '@/components/PostList';
 
 export default async function PostsPage() {
   const posts = await getPosts();
+  const categories = [...new Set(posts.map(post => post.category))];
 
-  return (
-    <div className="max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] m-zero-auto">
-      <PostList posts={posts} />
-    </div>
-  );
+  return <PostList posts={posts} categories={categories} />;
 }
