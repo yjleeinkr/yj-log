@@ -21,7 +21,7 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
         height={100}
         className="object-cover w-full h-[20vh] sm:h-[25vh] lg:h-[35vh]"
       />
-      <PostContent current={current} markdown={markdown} />
+      <PostContent post={current} markdown={markdown} />
       <div className="flex w-full justify-between items-center">
         <AdjacentPostCard post={prev} type="prev" />
         <AdjacentPostCard post={next} type="next" />
