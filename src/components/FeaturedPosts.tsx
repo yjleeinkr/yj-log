@@ -1,4 +1,3 @@
-import { PostProps } from '@/service/posts';
 import { getFeaturedOrNot } from '@/service/posts';
 import PostGrid from './PostGrid';
 
