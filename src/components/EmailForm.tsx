@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { object, string } from 'yup';
 import axios from 'axios';
+import StatusMsg, { EmailStatus } from './StatusMsg';
 
 let emailSchema = object({
   email: string().email().required(),
@@ -14,9 +15,8 @@ export default function EmailForm() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [text, setText] = useState('');
-  const [statusMessage, setStatusMessage] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
   const [doubleClickFlag, setDoubleClickFlag] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<EmailStatus | null>(null);
 
   const handleValue = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
@@ -51,19 +51,24 @@ export default function EmailForm() {
       await emailSchema.validate(emailContents);
       const res = await axios.post('/api/email', emailContents);
       if (res.data) {
-        setIsSuccess(true);
-        setStatusMessage('✅ 메일을 성공적으로 보냈습니다');
+        setEmailStatus({
+          state: 'success',
+          message: '메일을 성공적으로 보냈습니다',
+        });
       } else {
-        setIsSuccess(false);
-        setStatusMessage('🔥 메일 전송에 실패했습니다. 다시 시도해주세요!');
+        setEmailStatus({
+          state: 'error',
+          message: '메일 전송에 실패했습니다. 다시 시도해주세요!',
+        });
       }
     } catch (err) {
-      setIsSuccess(false);
-      setStatusMessage('❌ 메일 양식을 다시 확인해주세요!');
+      setEmailStatus({
+        state: 'error',
+        message: '메일 양식을 다시 확인해주세요!',
+      });
     } finally {
       setTimeout(() => {
-        setStatusMessage('');
-        setIsSuccess(false);
+        setEmailStatus(null);
         setDoubleClickFlag(false);
       }, 2000);
     }
@@ -71,17 +76,7 @@ export default function EmailForm() {
 
   return (
     <>
-      <div className="w-fit m-zero-auto my-5">
-        {isSuccess ? (
-          <p className={`bg-[#c5f7d8] py-2 px-3 text-xs ${statusMessage ? 'inline-block' : 'hidden'}`}>
-            {statusMessage}
-          </p>
-        ) : (
-          <p className={`bg-[#fbb0b0] py-2 px-3 text-xs ${statusMessage ? 'inline-block' : 'hidden'}`}>
-            {statusMessage}
-          </p>
-        )}
-      </div>
+      <div className="w-fit m-zero-auto my-5">{emailStatus && <StatusMsg emailStatus={emailStatus} />}</div>
       <form className="bg-lightgrey w-full sm:w-[90%] md:w-[70%] m-zero-auto p-3 rounded-lg" onSubmit={submitEmail}>
         <h3 className="text-primary text-start py-2 text-sm">Your email address</h3>
         <input
