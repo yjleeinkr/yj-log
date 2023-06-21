@@ -1,16 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { object, string } from 'yup';
-import axios from 'axios';
 import StatusMsg, { EmailStatus } from './StatusMsg';
-import { sendEmail } from '@/service/email';
-
-let emailSchema = object({
-  email: string().email().required(),
-  subject: string().required(),
-  text: string(),
-});
+import { contactViaEmail } from '@/service/contact';
 
 type EmailForm = {
   email: string;
@@ -49,8 +41,8 @@ export default function EmailForm() {
     event.preventDefault();
     if (checkDoubleClick()) return;
     try {
-      const res = await sendEmail(emailForm);
-      if (res.data) {
+      const res = await contactViaEmail(emailForm);
+      if (res.message === 'success') {
         setEmailStatus({
           state: 'success',
           message: '메일을 성공적으로 보냈습니다',
