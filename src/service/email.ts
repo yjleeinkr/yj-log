@@ -1,35 +1,27 @@
-import * as nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
+import { FormType } from './contact';
 
-type FormType = {
-  email: string;
-  subject: string;
-  text: string;
-};
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_ID,
+    pass: process.env.EMAIL_PW,
+  },
+});
 
-export async function sendEmail({ email, subject, text }: FormType) {
-  let transporter = nodemailer.createTransport({
-    host: 'smtp.naver.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PW,
-    },
-  });
-
-  let emailForm = {
-    from: email,
+export function sendEmail({ email, subject, text }: FormType) {
+  const mailData = {
     to: process.env.EMAIL_ID,
-    subject,
-    text,
+    from: email,
+    subject: `[YJ_LOG] ${subject}`,
+    html: `
+      <h1>${subject}</h1>
+      <p>sender: ${email}</p>
+      <div>${text}</div>
+    `,
   };
 
-  try {
-    const response = await transporter.sendMail(emailForm);
-    if (response.accepted[0] === email) return true;
-    else throw new Error('dispatch email error');
-  } catch (err) {
-    console.log(err);
-    return false;
-  }
+  return transporter.sendMail(mailData);
 }
