@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 
 export default function MarkdownRenderer({ markdown }: { markdown: PostContents['markdown'] }) {
-  return (
+  return markdown ? (
     <ReactMarkdown
       children={markdown}
       className="prose max-w-none"
@@ -40,5 +40,7 @@ export default function MarkdownRenderer({ markdown }: { markdown: PostContents[
         ),
       }}
     />
+  ) : (
+    <></>
   );
 }
