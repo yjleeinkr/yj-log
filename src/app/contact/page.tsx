@@ -3,6 +3,12 @@ import { SiTistory } from 'react-icons/si';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
 import EmailForm from '@/components/EmailForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact me',
+  description: 'yj contact info',
+};
 
 const LINKS = [
   { icon: <AiFillGithub />, url: 'https://github.com/yjleeinkr/', class: 'py-2 px-3 text-4xl' },
