@@ -1,7 +1,8 @@
 import Profile from '@/components/Profile';
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: "about | yj's dev-log",
+export const metadata: Metadata = {
+  title: 'About me',
   description: '주니어 프론트엔드 개발자 소개',
 };
 
