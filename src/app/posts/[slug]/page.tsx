@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getPostContents, getPosts } from '@/service/posts';
+import { getFeaturedOrNot, getPostContents, getPosts } from '@/service/posts';
 import PostContent from '@/components/PostContent';
 import AdjacentPostCard from '@/components/AdjacentPostCard';
 import { notFound } from 'next/navigation';
@@ -48,4 +48,11 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
       )}
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getFeaturedOrNot(true);
+  return posts.map(post => ({
+    slug: post.path,
+  }));
 }
