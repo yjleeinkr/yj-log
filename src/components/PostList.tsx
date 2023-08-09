@@ -16,7 +16,7 @@ export default function PostList({ posts, categories }: Props) {
   const filtered = selected === ALL_POSTS ? posts : posts.filter(post => post.category === selected);
 
   return (
-    <div className="flex p-7 sm:p-10 flex-col-reverse sm:flex-row sm:justify-between">
+    <div className="flex flex-col-reverse gap-10 sm:flex-row sm:justify-between p-7 sm:p-10">
       <PostGrid posts={filtered} />
       <Categories categories={[ALL_POSTS, ...categories]} selected={selected} onClick={setSelected} />
     </div>

@@ -3,21 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-type menuName = 'about' | 'posts' | 'contact';
-type menuTypes = { name: menuName; path: `/${menuName}` };
+type menuName = 'about' | 'Posts' | 'contact' | 'My Log';
+type menuTypes = { name: menuName; path: string };
 
 const menus: menuTypes[] = [
-  { name: 'about', path: '/about' },
-  { name: 'posts', path: '/posts' },
-  { name: 'contact', path: '/contact' },
+  // { name: 'about', path: '/about' },
+  { name: 'Posts', path: '/posts' },
+  // { name: 'contact', path: '/contact' },
+  { name: 'My Log', path: '/mylog' },
 ];
 
 export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex p-4 justify-between">
-      <h1 className="text-base sm:text-lg font-bold whitespace-nowrap">
+    <header className="flex px-4 py-5 justify-between w-full lg:w-[70%] max-w-screen-md mx-auto">
+      <h1 className="text-2xl font-bold whitespace-nowrap">
         <Link href="/">
           yj Log <span className="text-highlight">+</span>
         </Link>

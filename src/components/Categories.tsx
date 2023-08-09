@@ -6,7 +6,7 @@ type Props = {
 
 export default function Categories({ categories, selected, onClick }: Props) {
   return (
-    <nav className="sm:w-[8%] sm:text-center sm:ml-10">
+    <nav className="sm:w-[8%] sm:text-center">
       <h2 className="underline underline-offset-8 decoration-highlight decoration-2 py-3 text-xs sm:text-sm">
         Category
       </h2>

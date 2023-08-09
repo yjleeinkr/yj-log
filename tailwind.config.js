@@ -6,20 +6,6 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    colors: {
-      primary: '#000000',
-      highlight: '#F79327',
-      secondary: '#837e7c',
-      point: '#edf4ac',
-      lightgrey: '#f1f3f4',
-      white: '#ffffff',
-    },
-    boxShadow: {
-      highlight: '#F79327 0px 0px 6px 0px',
-      card: 'rgba(0, 0, 0, 0.2) 0px 0px 5px 0px',
-      'card-pop': 'rgba(0, 0, 0, 0.1) 2px 3px 5px 2px',
-      input: '#ddd 0 0 10px',
-    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -27,6 +13,20 @@ module.exports = {
       },
       margin: {
         'zero-auto': '0 auto',
+      },
+      colors: {
+        primary: '#000000',
+        highlight: '#00c6a0',
+        secondary: '#837e7c',
+        point: '#00c6a0',
+        lightgrey: '#f1f3f4',
+        white: '#ffffff',
+      },
+      boxShadow: {
+        highlight: '#F79327 0px 0px 6px 0px',
+        card: 'rgba(0, 0, 0, 0.2) 0px 0px 5px 0px',
+        'card-pop': 'rgba(0, 0, 0, 0.1) 2px 3px 5px 2px',
+        input: '#ddd 0 0 10px',
       },
     },
   },
