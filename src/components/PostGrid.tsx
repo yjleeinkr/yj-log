@@ -6,9 +6,9 @@ type Props = {
 };
 export default function PostGrid({ posts }: Props) {
   return (
-    <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul className="flex-grow">
       {posts.map((post, i) => (
-        <li key={i}>
+        <li key={post.path}>
           <PostCard post={post} />
         </li>
       ))}

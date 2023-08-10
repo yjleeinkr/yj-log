@@ -9,6 +9,8 @@ export type PostProps = {
   category: string;
   path: string;
   featured: boolean;
+  tags?: string[];
+  reference: { origin: string; link: string }[];
 };
 
 export const getPosts = cache(async (): Promise<PostProps[]> => {

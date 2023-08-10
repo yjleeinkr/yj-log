@@ -1,15 +1,12 @@
-import Profile from '@/components/Profile';
+// import Profile from '@/components/Profile';
 import FeaturedPosts from '@/components/FeaturedPosts';
-import PostsSlide from '@/components/PostsSlide';
 
 export default function Home() {
   return (
     <>
-      <Profile />
+      {/* <Profile /> */}
       {/* @ts-expect-error Server Component */}
       <FeaturedPosts />
-      {/* @ts-expect-error Server Component */}
-      <PostsSlide />
     </>
   );
 }

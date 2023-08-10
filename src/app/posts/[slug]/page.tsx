@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { getFeaturedOrNot, getPostContents, getPosts } from '@/service/posts';
-import PostContent from '@/components/PostContent';
-import AdjacentPostCard from '@/components/AdjacentPostCard';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
+import CurrentPostDetail from '@/components/CurrentPostDetail';
+import AdjacentPost from '@/components/AdjacentPostCard';
+import { getFeaturedOrNot, getPosts, getPostContents, PostProps } from '@/service/posts';
 import { notFound } from 'next/navigation';
 
 type ParamsProps = {
@@ -12,7 +12,7 @@ type ParamsProps = {
 
 export async function generateMetadata({ params: { slug } }: ParamsProps) {
   const posts = await getPosts();
-  const post = posts.find(post => post.path === slug);
+  const post = posts.find((post: PostProps) => post.path === slug);
   if (!post)
     return {
       title: `Not Found`,
@@ -29,23 +29,15 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
   if (!postList || !markdown) notFound();
   const { prev, current, next } = postList;
   return (
-    <article className="max-w-[95%] md:max-w-[85%] xl:max-w-[80%] m-zero-auto my-5 sm:my-10 bg-lightgrey rounded-lg overflow-clip">
-      {markdown && (
-        <>
-          <Image
-            src={`/img/posts/${current.path}.png`}
-            alt="thumbnail"
-            width={400}
-            height={100}
-            className="object-cover w-full h-[20vh] sm:h-[25vh] lg:h-[35vh]"
-          />
-          <PostContent post={current} markdown={markdown} />
-          <div className="flex w-full justify-between items-center">
-            <AdjacentPostCard post={prev} type="prev" />
-            <AdjacentPostCard post={next} type="next" />
-          </div>
-        </>
-      )}
+    <article className="my-5 sm:my-10 h-full rounded-lg overflow-clip">
+      <main className="px-5 py-1">
+        <CurrentPostDetail current={current} />
+        <MarkdownRenderer markdown={markdown} />
+      </main>
+      <div className="flex flex-col justify-between gap-4 w-full border-t-[1px] px-2 py-4">
+        <AdjacentPost post={prev} isPrev={true} />
+        <AdjacentPost post={next} isPrev={false} />
+      </div>
     </article>
   );
 }

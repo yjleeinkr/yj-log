@@ -1,6 +1,6 @@
-import PostCard from './PostCard';
 import { getFeaturedOrNot } from '@/service/posts';
 import SingleCarousel from './SingleCarousel';
+import PostCard from './PostCard';
 
 export default async function PostsSlide() {
   const posts = await getFeaturedOrNot(false);

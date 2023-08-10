@@ -1,0 +1,46 @@
+.markdown > * {
+  all: revert;
+  color: #2f2f2f;
+}
+
+.markdown h1 {
+  padding: 16px 0px;
+}
+.markdown h2 {
+  padding: 12px 0px;
+  font-size: 22px;
+}
+.markdown h3 {
+  padding: 6px 0px;
+}
+
+.markdown li {
+  padding: 6px 0px;
+  font-size: 17px;
+  font-weight: 400;
+}
+.markdown p {
+  color: #2f2f2f;
+  font-weight: 400;
+  font-size: 17px;
+  margin: 10px 0px;
+}
+
+.markdown blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 5px 15px;
+  border-left: 6px solid #dbd9d9;
+}
+
+.markdown code:not(pre div code) {
+  color: #009688;
+  background-color: #ededeb;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.markdown pre div {
+  border-radius: 12px;
+  padding: 2em !important;
+}

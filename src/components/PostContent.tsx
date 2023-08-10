@@ -1,4 +1,3 @@
-import { FcCalendar } from 'react-icons/fc';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { PostProps } from '@/service/posts';
 
@@ -8,7 +7,6 @@ export default function PostContent({ post: { date, title, description }, markdo
   return (
     <section className="px-5 py-1">
       <p className="flex items-center justify-end text-sm text-secondary py-2">
-        <FcCalendar />
         <span className="px-1">{date.toString()}</span>
       </p>
       <div className="py-3">
