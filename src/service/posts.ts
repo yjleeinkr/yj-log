@@ -8,7 +8,8 @@ export type PostProps = {
   category: string;
   path: string;
   featured: boolean;
-  tag?: string[];
+  tags?: string[];
+  reference: { origin: string; link: string }[];
 };
 
 export async function getPosts(): Promise<PostProps[]> {

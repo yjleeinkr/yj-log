@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { PostProps } from '@/service/posts';
+import Tags from './Tags';
 
 export default function PostCard({ post }: { post: PostProps }) {
-  const { title, description, date, category, path, tag } = post;
+  const { title, description, date, category, path, tags } = post;
 
   return (
     <Link
@@ -15,10 +16,10 @@ export default function PostCard({ post }: { post: PostProps }) {
         <h2 className="text-xl relative font-medium w-fit truncate after:block after:absolute after:w-0 after:content-[''] after:h-2 after:left-0 after:bottom-0 after:bg-point after:opacity-40 group-hover:after:w-full group-hover:after:transition-[width] group-hover:duration-600">
           {title}
         </h2>
-        <p className="text-md font-light w-full truncate pt-2 pb-4">{description}</p>
+        <p className="text-sm font-light w-full truncate pt-1 pb-4">{description}</p>
         <div className="flex items-center gap-4">
           <time className="text-xs text-secondary font-light">{date.toString()}</time>
-          <span className="text-xs rounded-l text-point font-light"># {category}</span>
+          <Tags tags={tags} />
         </div>
       </section>
     </Link>
