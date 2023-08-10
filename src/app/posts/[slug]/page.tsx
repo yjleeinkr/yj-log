@@ -1,7 +1,8 @@
-import { getPostContents } from '@/service/posts';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import CurrentPostDetail from '@/components/CurrentPostDetail';
 import AdjacentPost from '@/components/AdjacentPostCard';
+import { getFeaturedOrNot, getPosts, getPostContents, PostProps } from '@/service/posts';
+import { notFound } from 'next/navigation';
 
 type ParamsProps = {
   params: {
@@ -9,8 +10,23 @@ type ParamsProps = {
   };
 };
 
+export async function generateMetadata({ params: { slug } }: ParamsProps) {
+  const posts = await getPosts();
+  const post = posts.find((post: PostProps) => post.path === slug);
+  if (!post)
+    return {
+      title: `Not Found`,
+    };
+
+  return {
+    title: post.title,
+    description: post.description,
+  };
+}
+
 export default async function PostPage({ params: { slug } }: ParamsProps) {
   const { postList, markdown } = await getPostContents(slug);
+  if (!postList || !markdown) notFound();
   const { prev, current, next } = postList;
   return (
     <article className="my-5 sm:my-10 h-full rounded-lg overflow-clip">
@@ -24,4 +40,11 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
       </div>
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getFeaturedOrNot(true);
+  return posts.map(post => ({
+    slug: post.path,
+  }));
 }

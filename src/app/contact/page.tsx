@@ -2,8 +2,23 @@ import { AiFillGithub } from 'react-icons/ai';
 import { SiTistory } from 'react-icons/si';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
-import Link from 'next/link';
 import EmailForm from '@/components/EmailForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact me',
+  description: 'yj contact info',
+};
+
+const LINKS = [
+  { icon: <AiFillGithub />, url: 'https://github.com/yjleeinkr/', class: 'py-2 px-3 text-4xl' },
+  { icon: <SiTistory />, url: 'https://yjleekr.tistory.com/', class: 'py-2 px-3 text-3xl' },
+  {
+    icon: <BsFillPersonLinesFill />,
+    url: 'https://yjleeinkr.github.io/resume',
+    class: 'py-2 px-3 text-3xl',
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -15,21 +30,11 @@ export default function ContactPage() {
           yjleeinkr@gmail.com
         </p>
         <ul className="flex items-center justify-center">
-          <li className="py-2 px-3 text-4xl">
-            <Link href="https://github.com/yjleeinkr/" target="_blank">
-              <AiFillGithub />
-            </Link>
-          </li>
-          <li className="py-2 px-3 text-3xl">
-            <Link href="https://yjleekr.tistory.com/" target="_blank">
-              <SiTistory />
-            </Link>
-          </li>
-          <li className="py-2 px-3 text-3xl">
-            <Link href="https://yjleeinkr.github.io/resume" target="_blank">
-              <BsFillPersonLinesFill />
-            </Link>
-          </li>
+          {LINKS.map(link => (
+            <a href={link.url} className={link.class} target="_blank" rel="noreferrer">
+              {link.icon}
+            </a>
+          ))}
         </ul>
       </div>
       <div>
