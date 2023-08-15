@@ -8,5 +8,14 @@
     "featured": true,
     "tags": ["ES6", "Map", "Set"],
     "reference": [{ "origin": "모던 자바스크립트 Deep dive", "link": "https://poiemaweb.com/" }]
+  },
+  {
+    "title": "Throttle과 Debounce",
+    "description": "프론트엔드 성능 개선을 위하여!",
+    "date": "2023-08-15",
+    "category": "javascript",
+    "path": "throttle-debounce",
+    "featured": true,
+    "tags": ["event", "throttle", "debounce"]
   }
 ]
