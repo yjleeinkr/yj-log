@@ -41,15 +41,17 @@ export default function MarkdownRenderer({ markdown }: { markdown: PostContents[
             {...props}
           />
         ),
-        img: image => (
-          <Image
-            src={image.src || ''}
-            alt={image.alt || ''}
-            width={500}
-            height={350}
-            className="w-full max-h-60 object-cover"
-          />
-        ),
+        img: image => {
+          return (
+            <Image
+              src={image.src || ''}
+              alt={image.alt || ''}
+              width={400}
+              height={400}
+              className="object-cover mx-auto py-5"
+            />
+          );
+        },
       }}
     />
   ) : (
