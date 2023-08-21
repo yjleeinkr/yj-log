@@ -3,6 +3,7 @@ import CurrentPostDetail from '@/components/CurrentPostDetail';
 import AdjacentPost from '@/components/AdjacentPostCard';
 import { getFeaturedOrNot, getPosts, getPostContents, PostProps } from '@/service/posts';
 import { notFound } from 'next/navigation';
+import Comment from '@/components/Comment';
 
 type ParamsProps = {
   params: {
@@ -34,6 +35,7 @@ export default async function PostPage({ params: { slug } }: ParamsProps) {
         <CurrentPostDetail current={current} />
         <MarkdownRenderer markdown={markdown} />
       </main>
+      <Comment />
       <div className="flex flex-col justify-between gap-4 w-full border-t-[1px] px-2 py-4">
         <AdjacentPost post={prev} isPrev={true} />
         <AdjacentPost post={next} isPrev={false} />
