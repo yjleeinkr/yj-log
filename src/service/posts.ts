@@ -38,9 +38,9 @@ export async function getPostList(filename: string) {
     const idx = posts.findIndex(post => post.path === filename);
     if (idx === -1) throw new Error(`This post doesn't exist`);
     const postList = {
-      prev: posts[idx - 1] ?? posts[posts.length - 1],
+      prev: posts[idx + 1] ?? null,
       current: posts[idx],
-      next: posts[idx + 1] ?? posts[0],
+      next: posts[idx - 1] ?? null,
     };
     return postList;
   } catch (err) {
@@ -50,9 +50,9 @@ export async function getPostList(filename: string) {
 }
 
 export type PostList = {
-  prev: PostProps;
+  prev: PostProps | null;
   current: PostProps;
-  next: PostProps;
+  next: PostProps | null;
 };
 
 export type PostContents = {
