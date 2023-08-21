@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 const attrs = [
   ['repo', 'yjleeinkr/yj-log'],
   ['issue-term', 'pathname'],
@@ -11,7 +10,7 @@ const attrs = [
 const makeUtteranceScript = () => {
   const script = document.createElement('script');
   script.src = 'https://utteranc.es/client.js';
-  script.async = true;
+  script.defer = true;
   attrs.forEach(attr => {
     script.setAttribute(attr[0], attr[1]);
   });

@@ -1,8 +1,8 @@
+import { notFound } from 'next/navigation';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import CurrentPostDetail from '@/components/CurrentPostDetail';
 import AdjacentPost from '@/components/AdjacentPostCard';
 import { getFeaturedOrNot, getPosts, getPostContents, PostProps } from '@/service/posts';
-import { notFound } from 'next/navigation';
 import Comment from '@/components/Comment';
 
 type ParamsProps = {
