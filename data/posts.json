@@ -17,5 +17,14 @@
     "path": "throttle-debounce",
     "featured": true,
     "tags": ["event", "throttle", "debounce"]
+  },
+  {
+    "title": "Typescript Basic #1",
+    "description": "타입스크립트 기본적이지만 간과하기 좋은 부분",
+    "date": "2023-08-25",
+    "category": "typescript",
+    "path": "ts-basic-tip",
+    "featured": true,
+    "tags": ["tuple", "union", "interface", "enum"]
   }
 ]
