@@ -43,4 +43,5 @@
 .markdown pre div {
   border-radius: 12px;
   padding: 2em !important;
+  margin-bottom: 40px !important;
 }

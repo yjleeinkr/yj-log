@@ -65,7 +65,7 @@ printCat('racle'); // 두번째 인자 weight를 안 넣어줘면 에러 발생
 printCat('racle', undefined); // 이렇게 무조건 인자를 넣어줘야 한다.
 ```
 
-기본적이지만 다시 상기해보자면, 매개변수 값이 안 들어오는 경우를 대비해 특정 값으로 통일시켜주고 싶다면, `Default Parameter (=)`를 활용하자!
+기본적이지만 다시 상기해보자면, 매개변수 값이 안 들어오는 경우를 대비해 특정 값으로 통일시켜주고 싶을 때는 `Default Parameter (=)`를 활용하면 좋다!
 
 ```ts
 function printCat(name: string, weight: number = 0) {
@@ -74,6 +74,8 @@ function printCat(name: string, weight: number = 0) {
 }
 printCat('racle'); // 두번째 인자 weight를 안 넣어주면 자동으로 0 출력
 ```
+
+##
 
 ## Union 어떻게 써야 잘 쓰는 걸까?
 
@@ -116,9 +118,8 @@ function printLoginState(state: LoginState): void {
 }
 ```
 
-그래서 위와 같이 객체 내에 특정 속성이 있는지 확인하는 조건문을 걸어주곤한다.
-하지만, 이렇게 하는 것보다 아래와 같이 서로를 식별할 수 있는 공통 속성을 가진 `union`을 만드는게 중요하다.  
-이렇게 하면 공통 속성(`result`)을 기준으로 조건문을 만들어 자동 완성도 사용할 수 있고 타입 안정성도 보장 받을 수 있다.
+그래서 위와 같이 객체 내에 특정 속성이 있는지 확인하는 조건문을 걸어주곤한다.  
+하지만 이렇게 하는 것보다 아래와 같이 **~~서로를 식별할 수 있는 공통 속성을 가진 union을 만드는게 중요하다.~~** 이렇게 하면 공통 속성(result)을 기준으로 조건문을 만들어 자동 완성도 사용할 수 있고 타입 안정성도 보장 받을 수 있다.
 
 ```ts
 type SuccessState = {
@@ -150,6 +151,8 @@ function printLoginState(state: LoginState) {
     }
 }
 ```
+
+##
 
 ## Interface 계약서와 같다!
 
@@ -234,6 +237,8 @@ let fe = {} as Developer;
 fe.name = 'yj';
 fe.skill = ['javascript', 'typescript'];
 ```
+
+##
 
 ## Enum 어떻게 쓸까?
 
@@ -328,3 +333,5 @@ enum Errors {
   Detail = 'error msg detailed version',
 }
 ```
+
+글이 너무 길어져서 다음 포스팅에서 마저 정리한다.

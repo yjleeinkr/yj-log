@@ -35,7 +35,6 @@ export default function MarkdownRenderer({ markdown }: { markdown: PostContents[
             style={{
               textDecorationColor: '#00c6a0',
               textUnderlineOffset: '5px',
-              textDecorationStyle: 'wavy',
               textDecorationThickness: '2px',
             }}
             {...props}
